@@ -1,4 +1,4 @@
-package com.usedcarsapi.entities;
+package com.usedcarsapi.car;
 
 import java.math.BigDecimal;
 

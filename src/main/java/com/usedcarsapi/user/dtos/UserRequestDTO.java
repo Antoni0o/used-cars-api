@@ -1,4 +1,4 @@
-package com.usedcarsapi.dtos;
+package com.usedcarsapi.user.dtos;
 
 import lombok.Data;
 

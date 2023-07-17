@@ -1,4 +1,4 @@
-package com.usedcarsapi.entities;
+package com.usedcarsapi.user;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
