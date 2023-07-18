@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.usedcarsapi.car.Car;
 import com.usedcarsapi.car.exceptions.NotFoundException;
 import com.usedcarsapi.car.ports.CarRepository;
-import com.usedcarsapi.car.usecases.DeleteCarUseCase;
+import com.usedcarsapi.car.usecases.FindCarByIdUseCase;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,22 +16,21 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class DeleteCarUseCaseImpl implements DeleteCarUseCase {
+public class FindCarByIdUseCaseImpl implements FindCarByIdUseCase {
   @Autowired
   private CarRepository repository;
 
   @Override
-  public void execute(Long carId) throws NotFoundException {
-    log.info("[DeleteCarUseCase:execute] - Starting to delete Car");
+  public Car execute(Long carId) throws NotFoundException {
+    log.info("[FindCarByIdUseCase:execute] - Starting to find Car by Id");
     Optional<Car> car = repository.findById(carId);
 
     if (car.isEmpty()) {
-      log.error("[DeleteCarUseCase:execute] - Car not found when trying to delete");
+      log.error("[FindCarByIdUseCase:execute] - No Cars found when trying to find by Id!");
       throw new NotFoundException("Car not found!");
     }
 
-    repository.delete(car.get());
-    log.info("[DeleteCarUseCase:execute] - Car deleted successfully");
+    log.info("[FindCarByIdUseCase:execute] - Car found was found by Id");
+    return car.get();
   }
-
 }

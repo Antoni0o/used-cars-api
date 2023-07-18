@@ -9,5 +9,4 @@ public class CreateCarRequestDTO {
   private String model;
   private String brand;
   private BigDecimal price;
-  private String photoUrl;
 }
