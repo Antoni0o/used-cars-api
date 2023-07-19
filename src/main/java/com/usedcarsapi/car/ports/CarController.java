@@ -19,17 +19,17 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.usedcarsapi.car.Car;
-import com.usedcarsapi.car.dtos.CreateCarRequestDTO;
-import com.usedcarsapi.car.exceptions.NotFoundException;
+import com.usedcarsapi.car.dtos.CarRequestDTO;
 import com.usedcarsapi.car.usecases.CreateCarUseCase;
 import com.usedcarsapi.car.usecases.DeleteCarUseCase;
 import com.usedcarsapi.car.usecases.FindAllCarsUseCase;
 import com.usedcarsapi.car.usecases.FindCarByIdUseCase;
 import com.usedcarsapi.car.usecases.InsertCarPhotoUseCase;
 import com.usedcarsapi.car.usecases.UpdateCarUseCase;
+import com.usedcarsapi.exceptions.NotFoundException;
 
 @RestController
-@RequestMapping("/cars")
+@RequestMapping("/car")
 public class CarController {
   @Autowired
   private CreateCarUseCase createCarUseCase;
@@ -73,7 +73,7 @@ public class CarController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Car createCar(@RequestBody CreateCarRequestDTO request) {
+  public Car createCar(@RequestBody CarRequestDTO request) {
     try {
       return createCarUseCase.execute(request);
     } catch (Exception e) {
@@ -82,7 +82,7 @@ public class CarController {
   }
 
   @PutMapping("/{carId}")
-  public Car updateCar(@PathVariable Long carId, @RequestBody CreateCarRequestDTO request) {
+  public Car updateCar(@PathVariable Long carId, @RequestBody CarRequestDTO request) {
     try {
       return updateCarUseCase.execute(carId, request);
     } catch (NotFoundException e) {

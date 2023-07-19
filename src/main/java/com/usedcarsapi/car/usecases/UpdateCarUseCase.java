@@ -1,9 +1,9 @@
 package com.usedcarsapi.car.usecases;
 
 import com.usedcarsapi.car.Car;
-import com.usedcarsapi.car.dtos.CreateCarRequestDTO;
-import com.usedcarsapi.car.exceptions.NotFoundException;
+import com.usedcarsapi.car.dtos.CarRequestDTO;
+import com.usedcarsapi.exceptions.NotFoundException;
 
 public interface UpdateCarUseCase {
-  Car execute(Long carId, CreateCarRequestDTO request) throws NotFoundException;
+  Car execute(Long carId, CarRequestDTO request) throws NotFoundException;
 }

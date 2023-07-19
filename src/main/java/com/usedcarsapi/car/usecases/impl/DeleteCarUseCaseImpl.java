@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.usedcarsapi.car.Car;
-import com.usedcarsapi.car.exceptions.NotFoundException;
 import com.usedcarsapi.car.ports.CarRepository;
 import com.usedcarsapi.car.usecases.DeleteCarUseCase;
+import com.usedcarsapi.exceptions.NotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

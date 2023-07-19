@@ -1,4 +1,4 @@
-package com.usedcarsapi.car.exceptions;
+package com.usedcarsapi.exceptions;
 
 public class NotFoundException extends Exception {
   public NotFoundException(String message) {

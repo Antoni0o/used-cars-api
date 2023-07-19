@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import lombok.Data;
 
 @Data
-public class CreateCarRequestDTO {
+public class CarRequestDTO {
   private String model;
   private String brand;
   private BigDecimal price;

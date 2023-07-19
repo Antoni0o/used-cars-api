@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.usedcarsapi.car.Car;
-import com.usedcarsapi.car.dtos.CreateCarRequestDTO;
-import com.usedcarsapi.car.exceptions.NotFoundException;
+import com.usedcarsapi.car.dtos.CarRequestDTO;
 import com.usedcarsapi.car.ports.CarRepository;
 import com.usedcarsapi.car.usecases.UpdateCarUseCase;
+import com.usedcarsapi.exceptions.NotFoundException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
   private CarRepository repository;
 
   @Override
-  public Car execute(Long carId, CreateCarRequestDTO request) throws NotFoundException {
+  public Car execute(Long carId, CarRequestDTO request) throws NotFoundException {
     log.info("[UpdateCarUseCase:execute] - Starting to update Car");
     Optional<Car> car = repository.findById(carId);
 
