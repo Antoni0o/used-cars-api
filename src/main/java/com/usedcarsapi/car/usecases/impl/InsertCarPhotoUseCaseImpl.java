@@ -41,7 +41,7 @@ public class InsertCarPhotoUseCaseImpl implements InsertCarPhotoUseCase {
     int extI = originalFilename.lastIndexOf(".");
     String newFilename = car.get().getBrand() + car.get().getModel().replace(" ", "-") + carId + "."
         + originalFilename.substring(extI + 1);
-    File finalPath = new File("src/main/resources/static/" + newFilename);
+    File finalPath = new File("src/main/resources/static/images/cars/" + newFilename);
 
     log.info("[InsertCarPhotoUseCase:execute] - Photo path: " + finalPath);
 
@@ -51,7 +51,7 @@ public class InsertCarPhotoUseCaseImpl implements InsertCarPhotoUseCase {
       fos.write(file.getBytes());
       fos.close();
 
-      String photoUrl = baseUrl + "/" + newFilename;
+      String photoUrl = baseUrl + "/images/cars/" + newFilename;
       car.get().setPhotoUrl(photoUrl);
 
       log.info("[InsertCarPhotoUseCase:execute] - Photo URL: " + photoUrl);

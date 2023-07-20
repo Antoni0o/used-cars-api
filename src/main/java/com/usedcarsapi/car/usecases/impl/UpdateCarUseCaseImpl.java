@@ -34,7 +34,7 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
 
     car.get().setBrand(request.getBrand() == "" ? car.get().getBrand() : request.getBrand());
     car.get().setModel(request.getModel() == "" ? car.get().getModel() : request.getModel());
-    car.get().setPrice(request.getPrice() == new BigDecimal(0) ? car.get().getPrice() : request.getPrice());
+    car.get().setPrice(request.getPrice().compareTo(BigDecimal.ZERO) <= 0 ? car.get().getPrice() : request.getPrice());
 
     repository.save(car.get());
 

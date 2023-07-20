@@ -32,9 +32,8 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
       throw new NotFoundException("User not found");
     }
 
-    user.get().setName(request.getName() == "" ? user.get().getName() : request.getName());
+    user.get().setUsername(request.getName() == "" ? user.get().getUsername() : request.getName());
     user.get().setPassword(request.getPassword() == "" ? user.get().getPassword() : request.getPassword());
-    user.get().setAdmin(request.isAdmin());
 
     repository.save(user.get());
 

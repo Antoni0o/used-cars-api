@@ -1,9 +1,9 @@
-package com.usedcarsapi.user.dtos;
+package com.usedcarsapi.security.dtos;
 
 import lombok.Data;
 
 @Data
-public class UserRequestDTO {
+public class LoginRequestDTO {
   private String name;
   private String password;
 }
